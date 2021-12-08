@@ -1,0 +1,28 @@
+#root {
+  --font: Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: -8px;
+  --primary: #560027;
+  --secondary: #80deea;
+  --secondary-dark: #4bacb8;
+}
+
+button {
+  font-family: var(--font);
+  font-weight: bold;
+  font-size: 1.25rem;
+  cursor: pointer;
+  background-color: var(--secondary);
+  outline: 0;
+  border: 0;
+  border-radius: 0.25rem;
+  padding: 0.4rem 1rem;
+  min-width: 115px;
+  transition: 300ms;
+}
+
+button:hover {
+  background-color: var(--secondary-dark);
+}

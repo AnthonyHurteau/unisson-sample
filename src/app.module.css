@@ -1,0 +1,14 @@
+.appBar {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  font-size: xx-large;
+  font-weight: bolder;
+  vertical-align: middle;
+  color: #fff;
+  background-color: var(--primary);
+}
+
+.menuButton {
+  margin-left: 20px;
+}
