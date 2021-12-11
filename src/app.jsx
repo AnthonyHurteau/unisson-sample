@@ -1,4 +1,4 @@
-import { UnissonComponent, Router, Route } from "unisson";
+import { UnissonComponent, Router, Route, AsyncData } from "unisson";
 import styles from "./app.module.css";
 
 const routes = [
@@ -11,7 +11,15 @@ export default class App extends UnissonComponent {
   constructor() {
     super();
     this.routerName = "router";
+    this._parameter = new AsyncData(this, "/parameters/" + categories[0]);
     Router(this.routerName, routes);
+  }
+
+  get parameter() {
+    return this._parameter.getValue();
+  }
+  set parameter(val) {
+    this._parameter.setAttribute("route", val);
   }
 
   connectedCallback() {
@@ -25,7 +33,8 @@ export default class App extends UnissonComponent {
         <div class={styles.appBar}>
           <img
             src="/unisson192.png"
-            width="60"
+            height="60px"
+            width="60px"
             alt="AppBar logo" />
           <div>{this.title}</div>
           <button
@@ -39,8 +48,11 @@ export default class App extends UnissonComponent {
             Parent
           </button>
           <button
+            uId={this._parameter.uId}
             class={styles.menuButton}
-            route="/parameters/test">
+            onClick={() => (this.parameter = getCategory("/parameters/"))}
+            route={this.parameter}
+          >
             Parameters
           </button>
         </div>
@@ -51,3 +63,11 @@ export default class App extends UnissonComponent {
 }
 
 customElements.define("app-main", App);
+
+const categories = ["Programming", "Pun", "Spooky", "Christmas"];
+
+function getCategory(baseUrl) {
+  const index = Math.floor(Math.random() * categories.length) + 0;
+  const category = categories[index];
+  return baseUrl + category;
+}

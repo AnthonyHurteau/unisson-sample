@@ -16,8 +16,18 @@ export default class Parent extends UnissonComponent {
 
   template() {
     return (
-      <div>
-        <p>Parent component</p>
+      <div class="container flexHCenter flexVCenter">
+        <h1 class="title flexFull">Parent Component</h1>
+        <p>
+          <div class="input-group">
+            <input
+              id="input"
+              type="text"
+              name="input"
+              placeholder="Input" />
+            <label for="input">Input</label>
+          </div>
+        </p>
       </div>
     );
   }

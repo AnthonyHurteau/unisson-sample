@@ -1,7 +1,7 @@
 .appBar {
   display: flex;
   align-items: center;
-  height: 64px;
+  height: var(--navBar-height);
   font-size: xx-large;
   font-weight: bolder;
   vertical-align: middle;
