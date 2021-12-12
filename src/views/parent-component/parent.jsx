@@ -24,8 +24,25 @@ export default class Parent extends UnissonComponent {
               id="input"
               type="text"
               name="input"
-              placeholder="Input" />
+              placeholder=" " />
             <label for="input">Input</label>
+          </div>
+          <div class="input-group">
+            <select
+              name="operators"
+              id="operators"
+              name="operators"
+              placeholder="operator"
+              onChange={() => setSelectValue()}
+              value=""
+            >
+              <option value=""></option>
+              <option value="+">+</option>
+              <option value="-">-</option>
+              <option value="*">*</option>
+              <option value="/">/</option>
+            </select>
+            <label for="operators">Operator</label>
           </div>
         </p>
       </div>
@@ -34,3 +51,8 @@ export default class Parent extends UnissonComponent {
 }
 
 customElements.define("parent-element", Parent);
+
+function setSelectValue() {
+  const select = document.getElementById("operators");
+  select.setAttribute("value", select.value);
+}
